@@ -3,6 +3,7 @@ class MainController < ApplicationController
   end
 
   def about
+    @created_by = 'Nico'
   end
 
   def hello
