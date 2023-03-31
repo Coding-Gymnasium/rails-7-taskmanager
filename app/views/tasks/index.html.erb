@@ -1,5 +1,4 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1>Tasks</h1>
 
 <% if @page == 1 %>
   <h2>Task List</h2>
@@ -7,6 +6,19 @@
 
 <ul>
 <% @tasks.each do |task| %>
-  <li><%= task %></li>
+  <div style="
+              border: solid 1px black;
+              min-height: fit-content;
+              min-width: 200px;
+              max-width: fit-content;
+              padding: 1rem;
+              margin-bottom: 1rem;
+              color: black;"
+  >
+  <%= task.name %>
+  <li style="margin-left: 2rem;"><%= "Position: #{ task.position }" %></li>
+  <li style="margin-left: 2rem;"><%= "#{ task.description }" %></li>
+  <li style="margin-left: 2rem;"><%= "Completed: #{ task.completed }" %></li>
+  </div>
 <% end %>
 </ul>

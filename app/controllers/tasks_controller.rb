@@ -3,7 +3,7 @@
 class TasksController < ApplicationController
   def index
     @page = params[:page].to_i
-    @tasks = ['Fold laundry', 'Sweep proch', 'Wash dishes', 'Now lawn']
+    @tasks = Task.all
   end
 
   def show; end
