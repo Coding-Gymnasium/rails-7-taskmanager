@@ -6,19 +6,21 @@
 
 <ul>
 <% @tasks.each do |task| %>
-  <div style="
-              border: solid 1px black;
-              min-height: fit-content;
-              min-width: 200px;
-              max-width: fit-content;
-              padding: 1rem;
-              margin-bottom: 1rem;
-              color: black;"
-  >
-  <%= task.name %>
-  <li style="margin-left: 2rem;"><%= "Position: #{ task.position }" %></li>
-  <li style="margin-left: 2rem;"><%= "#{ task.description }" %></li>
-  <li style="margin-left: 2rem;"><%= "Completed: #{ task.completed }" %></li>
-  </div>
+  <%= link_to task_path(task), { :style=>"text-decoration: none;" } do %>
+    <div style="
+                border: solid 1px black;
+                min-height: fit-content;
+                min-width: 200px;
+                max-width: fit-content;
+                padding: 1rem;
+                margin-bottom: 1rem;
+                color: black;
+    >
+    <%= task.name %>
+    <li style="margin-left: 2rem;"><%= "Position: #{ task.position }" %></li>
+    <li style="margin-left: 2rem;"><%= "#{ task.description }" %></li>
+    <li style="margin-left: 2rem;"><%= "Completed: #{ task.completed }" %></li>
+    </div>
+  <% end %>
 <% end %>
 </ul>
