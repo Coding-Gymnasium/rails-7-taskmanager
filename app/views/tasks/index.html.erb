@@ -1,3 +1,5 @@
+<%=  link_to('Home', root_path)%><br />
+
 <h1>Tasks</h1>
 
 <% if @page == 1 %>
@@ -6,21 +8,26 @@
 
 <ul>
 <% @tasks.each do |task| %>
-  <%= link_to task_path(task), { :style=>"text-decoration: none;" } do %>
     <div style="
                 border: solid 1px black;
                 min-height: fit-content;
                 min-width: 200px;
                 max-width: fit-content;
                 padding: 1rem;
+                padding-top: 0;
                 margin-bottom: 1rem;
-                color: black;
+                color: black;"
     >
-    <%= task.name %>
+    <h2><%= task.name %></h2>
     <li style="margin-left: 2rem;"><%= "Position: #{ task.position }" %></li>
     <li style="margin-left: 2rem;"><%= "#{ task.description }" %></li>
-    <li style="margin-left: 2rem;"><%= "Completed: #{ task.completed }" %></li>
+    <li style="margin-left: 2rem;"><%= "Completed: #{ task.completed ? 'Yes' : 'No' }" %></li>
+    <li style="margin-left: 2rem;"><%= "Category: #{ task.category&.name}" %></li>
+      <div style="text-align: center; margin-top: 0.5rem;">
+        <%= link_to('Edit', edit_task_path(task)) %>
+        <%= link_to('Delete', {action: 'destroy', id: task.id}) %>
+        <%= link_to('View', task_path(task)) %>
+      </div>
     </div>
-  <% end %>
 <% end %>
 </ul>
