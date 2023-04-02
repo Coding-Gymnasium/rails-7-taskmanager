@@ -2,9 +2,7 @@
 
 <h1>Tasks</h1>
 
-<% if @page == 1 %>
-  <h2>Task List</h2>
-<% end %>
+<%= link_to("Add New Task", new_task_path) %>
 
 <ul>
 <% @tasks.each do |task| %>
@@ -25,7 +23,7 @@
     <li style="margin-left: 2rem;"><%= "Category: #{ task.category&.name}" %></li>
       <div style="text-align: center; margin-top: 0.5rem;">
         <%= link_to('Edit', edit_task_path(task)) %>
-        <%= link_to('Delete', {action: 'destroy', id: task.id}) %>
+        <%= link_to('Delete', task_delete_path(task)) %>
         <%= link_to('View', task_path(task)) %>
       </div>
     </div>
